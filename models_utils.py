@@ -43,12 +43,9 @@ def E_MNL_train(X_train, Q_train, y_train,
 
     UNIQUE_CATS= sorted(list(set(Q_train.reshape(-1))))
     NUM_UNIQUE_CATS= len(UNIQUE_CATS)
-
-    EMB_SIZE= NUM_CHOICES
-
+    
     mnl_model = E_MNL(NUM_CONT_VARS, NUM_EMB_VARS,
-                 NUM_CHOICES, NUM_UNIQUE_CATS,
-                 EMB_SIZE)
+                      NUM_CHOICES, NUM_UNIQUE_CATS)
 
     optimizer = Adam(clipnorm= 50.)
     mnl_model.compile(optimizer= optimizer, metrics= ["accuracy"], loss= 'categorical_crossentropy')
@@ -102,11 +99,11 @@ def EL_MNL_train(X_train, Q_train, y_train,
     UNIQUE_CATS= sorted(list(set(Q_train.reshape(-1))))
     NUM_UNIQUE_CATS= len(UNIQUE_CATS)
 
-    EMB_SIZE= NUM_CHOICES + n_extra_emb_dims
+    XTRA_EMB_DIMS= n_extra_emb_dims
 
     mnl_model = EL_MNL(NUM_CONT_VARS, NUM_EMB_VARS,
                        NUM_CHOICES, NUM_UNIQUE_CATS,
-                       EMB_SIZE, N_NODES)
+                       XTRA_EMB_DIMS, N_NODES)
 
 
     optimizer = Adam(clipnorm= 50.)
