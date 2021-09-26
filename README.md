@@ -1,5 +1,5 @@
 # Interpretable-Embeddings-MNL
-This repository consist of the source code used in the paper:
+This repository consists of the source code used in the paper:
 
 Combining Discrete Choice Models and Neural Networks through Embeddings: Formulation, Interpretability and Performance.
 
